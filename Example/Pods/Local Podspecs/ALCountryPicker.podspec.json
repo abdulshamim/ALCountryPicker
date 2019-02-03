@@ -1,0 +1,22 @@
+{
+  "name": "ALCountryPicker",
+  "version": "0.1.0",
+  "summary": "A short description of ALCountryPicker.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/abdul.shamimkhan5@gmail.com/ALCountryPicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "abdul.shamimkhan5@gmail.com": "abdul.shamim@jungleworks.co"
+  },
+  "source": {
+    "git": "https://github.com/abdul.shamimkhan5@gmail.com/ALCountryPicker.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ALCountryPicker/Classes/**/*"
+}

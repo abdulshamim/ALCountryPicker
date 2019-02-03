@@ -1,0 +1,6 @@
+framework module Pods_ALCountryPicker_Example {
+  umbrella header "Pods-ALCountryPicker_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

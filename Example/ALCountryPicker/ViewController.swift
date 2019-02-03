@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ALCountryPicker
 
 class ViewController: UIViewController {
 
@@ -20,5 +21,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func openCountryPicker(_ sender: UIButton) {
+//        let viewConfig = CountryPickerVisualConfig(.black, .red, .orange)
+//        CountryPicker.present(on: self, viewConfig) { (country) in
+//            print(country.dialingCode ?? "")
+//            print(country.flag, "",country.countryName, "", country.countryCode)
+//        }
+        CountryPicker.present(on: self) { (country) in
+            print(country.dialingCode ?? "")
+            print(country.flag, "",country.countryName, "", country.countryCode)
+        }
+    }
 }
 
