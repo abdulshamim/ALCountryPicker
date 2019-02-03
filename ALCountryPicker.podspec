@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "10.0"
   s.ios.deployment_target = '10.0'
-  s.swift_version = "4"
+  s.swift_version = "4.1"
 
   s.source_files = 'Files/**/*.{swift}'
 
