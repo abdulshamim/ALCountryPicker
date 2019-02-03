@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ALCountryPicker'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'This is country picker framework.'
   s.description      = <<-DESC
                         List of all countries. You can search your country via name, country code and dialing code.
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/abdulshamim/ALCountryPicker'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'abdul.shamimkhan5@gmail.com' => 'abdul.shamim@jungleworks.co' }
+  s.author           = { 'Abdul' => 'abdul.shamimkhan5@gmail.com' }
   s.source           = { :git => 'https://github.com/abdulshamim/ALCountryPicker.git', :tag => s.version.to_s }
 
   s.platform     = :ios, "10.0"
