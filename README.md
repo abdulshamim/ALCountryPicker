@@ -9,13 +9,8 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-CountryPicker.present(on: self) { (country) in
-            DispatchQueue.main.async {
-                print(country.dialingCode ?? "")
-                print(country.flag, "",country.countryName, "", country.countryCode)
-                self.countryLabel.text = country.flag + " " + country.countryName +  " (\(String(describing: country.dialingCode ?? "")))"
-            }
-        }
+## ScreenShots
+
 
 ## Requirements
 
