@@ -61,7 +61,7 @@ class ViewController: UIViewController {
 
 
 ## Author
-Abdul Shamim Khan
+*Abdul Shamim Khan
 abdul.shamimkhan5@gmail.com
 
 ## License
