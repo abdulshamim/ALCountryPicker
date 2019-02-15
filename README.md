@@ -11,6 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## ScreenShots
 ![img1](https://user-images.githubusercontent.com/13666188/52888485-d08e6780-31a1-11e9-8143-a6d6d9595259.png) ![img2](https://user-images.githubusercontent.com/13666188/52888492-dab06600-31a1-11e9-8edb-d2c7ac8ea631.png)
+
+You can search country by name, region code and dialing code.
 ![img3](https://user-images.githubusercontent.com/13666188/52888550-1814f380-31a2-11e9-8e67-59f6b88cad97.png) ![img4](https://user-images.githubusercontent.com/13666188/52888553-1c411100-31a2-11e9-8221-60f7d9fc4d0f.png) ![img5](https://user-images.githubusercontent.com/13666188/52888554-1d723e00-31a2-11e9-8e41-5aba218cef8a.png)
 
 
