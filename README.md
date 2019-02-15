@@ -29,7 +29,7 @@ pod 'ALCountryPicker'
 ```
 ## Getting Started
 ```ruby
- import UIKit
+import UIKit
 import ALCountryPicker
 
 class ViewController: UIViewController {
@@ -59,8 +59,8 @@ class ViewController: UIViewController {
 ```
 
 ## Author
-
-abdul.shamimkhan5@gmail.com, abdul.shamim@jungleworks.co
+Abdul Shamim Khan
+abdul.shamimkhan5@gmail.com
 
 ## License
 
