@@ -14,6 +14,18 @@ public class Country {
     public var countryName: String
     public var countryCode: String
     
+    //Get current country
+    public class var current: Country? {
+        if let countryCode = Locale.current.regionCode {
+            if isodialingCode.keys.contains(Locale.current.regionCode ?? "") {
+                let flag = String.emojiFlag(for: countryCode)
+                let country = Country(countryCode: countryCode, flag: flag ?? "")
+                CountryManager.shared.lastSelectedCountry = CountryManager.shared.lastSelectedCountry == nil ? country : nil
+                return country
+            }
+        }
+        return nil
+    }
     
     open var dialingCode: String? {
         if let digitCountryCode = isodialingCode[countryCode] {

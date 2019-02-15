@@ -15,12 +15,12 @@ class CountryManager {
     var lastSelectedCountry: Country?
     var lastSelectedCountryIndex: Int?
     
-    var searchActive = false
     var countries = [Country]()
     var filteredCountries = [Country]()
  
+    
+     //Load all countries
     func loadCountries() {
-        self.searchActive = false
         self.countries = []
         self.filteredCountries = []
         
@@ -30,15 +30,9 @@ class CountryManager {
             if isodialingCode.keys.contains(countryCode) {
                 let country = Country(countryCode: countryCode, flag: allFlags[index])
                 self.countries.append(country)
+                self.filteredCountries.append(country)
             }
-            
-           // newflags.append(allFlags[index])
         }
-        
-//        print(Locale.isoRegionCodes.count)
-//        print(allFlags.count)
-//        print(isodialingCode.count)
-        
         self.getSelectedCountryIndex() 
     }
     
@@ -51,15 +45,19 @@ class CountryManager {
             }
         }
     }
+    
+    //Filter countrywith search string
+    func setFilteredCountries(searchedCountry: String?) {
+        if searchedCountry != "" {
+            let searchString = searchedCountry?.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: ".", with: "").lowercased()
+            self.filteredCountries = self.countries.filter {
+                $0.countryName.lowercased().contains(searchString!) ||
+                    $0.countryCode.lowercased().contains(searchString!) ||
+                    $0.dialingCode?.replacingOccurrences(of: "-", with: "").contains(searchString!) ?? false
+            }
+        } else{
+             self.filteredCountries = self.countries
+        }
+    }
 }
-
-
-//        var newflags = [String]()
-//        for (index, dial) in Locale.isoRegionCodes.enumerated() {
-//            if isodialingCode.keys.contains(dial) {
-//                newflags.append(allFlags[index])
-//            } else {
-//                // print("\(Locale.isoRegionCodes[index]) at index \(index)")
-//            }
-//        }
 

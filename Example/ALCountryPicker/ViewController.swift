@@ -11,9 +11,16 @@ import ALCountryPicker
 
 class ViewController: UIViewController {
 
+     @IBOutlet weak var countryLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if let currentCountry = Country.current {
+            self.countryLabel.text = currentCountry.flag + " " + currentCountry.countryName +  " (\(String(describing: currentCountry.dialingCode ?? "")))"
+        }
+        
+        print()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +29,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func openCountryPicker(_ sender: UIButton) {
-//        let viewConfig = CountryPickerVisualConfig(.black, .red, .orange)
-//        CountryPicker.present(on: self, viewConfig) { (country) in
-//            print(country.dialingCode ?? "")
-//            print(country.flag, "",country.countryName, "", country.countryCode)
-//        }
+
         CountryPicker.present(on: self) { (country) in
-            print(country.dialingCode ?? "")
-            print(country.flag, "",country.countryName, "", country.countryCode)
+            DispatchQueue.main.async {
+                print(country.dialingCode ?? "")
+                print(country.flag, "",country.countryName, "", country.countryCode)
+                self.countryLabel.text = country.flag + " " + country.countryName +  " (\(String(describing: country.dialingCode ?? "")))"
+            }
         }
     }
 }

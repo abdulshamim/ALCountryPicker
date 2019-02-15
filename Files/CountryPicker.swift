@@ -11,12 +11,22 @@ import UIKit
 public class CountryPicker: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backBarButton: UIBarButtonItem!
     
     var searchController = UISearchController(searchResultsController: nil)
     public var completion: ((_ selectedCountry: Country) -> Void)?
     
     public var viewConfig: CountryPickerVisualConfig?
    
+    class var bundle: Bundle? {
+        let podBundle = Bundle(for: CountryPicker.self)
+        print(podBundle)
+        guard let bundleURL = podBundle.url(forResource: "ALCountryPicker", withExtension: "bundle"), let fetchBundle = Bundle(url: bundleURL) else {
+            return podBundle
+        }
+        print(fetchBundle)
+        return fetchBundle
+    }
 
     public func setUp(picker visualConfig: CountryPickerVisualConfig) {
         self.viewConfig = visualConfig
@@ -26,6 +36,7 @@ public class CountryPicker: UIViewController {
         super.viewDidLoad()
     
         CountryManager.shared.loadCountries()
+        self.setUpBackBarButton()
         self.setUpSearchbarController()
         self.setUpTableView()
     }
@@ -34,6 +45,13 @@ public class CountryPicker: UIViewController {
         if #available(iOS 11.0, *) {
             navigationItem.hidesSearchBarWhenScrolling = true
         }
+    }
+    
+    //Setup back button
+    private func setUpBackBarButton() {
+        backBarButton.tintColor = .blue
+        backBarButton.title = "← Back"
+        
     }
     
     private func setUpTableView() {
@@ -49,7 +67,8 @@ public class CountryPicker: UIViewController {
         self.searchController.searchBar.barStyle = .default
         self.searchController.searchBar.sizeToFit()
         self.searchController.searchBar.delegate = self
-        self.searchController.searchBar.placeholder = "Search country name here.."
+        self.searchController.definesPresentationContext = true
+        self.searchController.searchBar.placeholder = "Search country here.."
         
         if #available(iOS 11.0, *) {
             self.navigationItem.searchController = searchController
@@ -59,14 +78,20 @@ public class CountryPicker: UIViewController {
     }
     
     public class func present(on viewController: UIViewController, completion: @escaping (_ selectedCountry: Country) -> Void) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle(for: CountryPicker.self))
+        let storyBoard = UIStoryboard(name: "Main", bundle: bundle)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CountryPicker") as? CountryPicker {
             vc.completion = completion
-           // vc.viewConfig = viewConfig ?? nil
-            viewController.navigationController?.pushViewController(vc, animated: true)
+            let navVC = UINavigationController(rootViewController: vc)
+            //navVC.setNavigationBarHidden(false, animated: false)
+            viewController.navigationController?.present(navVC, animated: true, completion: nil)
         }
+        
     }
     
+    @IBAction func backAction(_ sender: UIBarButtonItem) {
+        print("Working")
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 
@@ -74,15 +99,14 @@ public class CountryPicker: UIViewController {
 extension CountryPicker: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CountryManager.shared.searchActive ? CountryManager.shared.filteredCountries.count : CountryManager.shared.countries.count
+        return CountryManager.shared.filteredCountries.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as? CountryCell else {
             return UITableViewCell()
         }
-        let countries = CountryManager.shared.searchActive ? CountryManager.shared.filteredCountries : CountryManager.shared.countries
-        cell.setCountryData(country: countries[indexPath.row], lastSelectedCountry: CountryManager.shared.lastSelectedCountry)
+        cell.setCountryData(country:  CountryManager.shared.filteredCountries[indexPath.row], lastSelectedCountry: CountryManager.shared.lastSelectedCountry)
         
         cell.setUp(visualConfig: self.viewConfig)
         
@@ -99,11 +123,13 @@ extension CountryPicker: UITableViewDataSource {
 extension CountryPicker: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let countries = CountryManager.shared.searchActive ? CountryManager.shared.filteredCountries : CountryManager.shared.countries
-        CountryManager.shared.lastSelectedCountry = countries[indexPath.row]
-        self.tableView.reloadData()
-        self.navigationController?.popViewController(animated: true)
-        self.completion?(countries[indexPath.row])
+        let countries = CountryManager.shared.filteredCountries
+        DispatchQueue.global().async {
+            let country = countries[indexPath.row]
+            CountryManager.shared.lastSelectedCountry = country
+            self.completion?(country)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -111,27 +137,13 @@ extension CountryPicker: UITableViewDelegate {
 extension CountryPicker: UISearchBarDelegate {
     
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       
-        if searchBar.text != "" {
-            CountryManager.shared.searchActive = true
-            let searchString = searchBar.text?.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: ".", with: "").lowercased()
-            CountryManager.shared.filteredCountries = CountryManager.shared.countries.filter {
-                $0.countryName.lowercased().contains(searchString!) ||
-                $0.countryCode.lowercased().contains(searchString!) ||
-                $0.dialingCode?.replacingOccurrences(of: "-", with: "").contains(searchString!) ?? false
-            }
-            
-        } else {
-           CountryManager.shared.filteredCountries = []
-           CountryManager.shared.searchActive = false
-        }
+        CountryManager.shared.setFilteredCountries(searchedCountry: searchBar.text)
         self.tableView.reloadData()
     }
     
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()
-        CountryManager.shared.searchActive = false
         tableView.reloadData()
     }
 }

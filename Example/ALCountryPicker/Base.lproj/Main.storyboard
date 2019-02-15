@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Clp-8D-3kn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Clp-8D-3kn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,14 +32,25 @@
                                     <action selector="openCountryPicker:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tkY-y9-arB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDr-ZI-Qmt">
+                                <rect key="frame" x="166.5" y="243" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iDr-ZI-Qmt" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="F9w-Yu-riU"/>
+                            <constraint firstItem="oLp-YG-H2m" firstAttribute="top" secondItem="iDr-ZI-Qmt" secondAttribute="bottom" constant="49.5" id="QL9-2y-Ptv"/>
                             <constraint firstItem="oLp-YG-H2m" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Wzu-vH-B1i"/>
                             <constraint firstItem="oLp-YG-H2m" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="i0Y-X9-lNz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cAZ-ND-Xml"/>
+                    <connections>
+                        <outlet property="countryLabel" destination="iDr-ZI-Qmt" id="64g-m1-zEa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

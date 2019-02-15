@@ -11,7 +11,7 @@
 		207E2C2CA587C40C262358A38EEFDFB0 /* ALCountryPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F64CD2E6D9578A5F33F41A0B0855A65 /* ALCountryPicker-dummy.m */; };
 		276D7DE47B5CD547E71FE5C779EF7611 /* Pods-ALCountryPicker_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B0FAEA2EFCE92F833B8F926209C163 /* Pods-ALCountryPicker_Tests-dummy.m */; };
 		43964F66A0AAE1E6BEB7D4C63180AFFE /* Pods-ALCountryPicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61254BB3EE600D39C098B48C5EB76EDC /* Pods-ALCountryPicker_Example-dummy.m */; };
-		4EF39FED21FC873B00D0C920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF39FEC21FC873B00D0C920 /* Main.storyboard */; };
+		4EF015F3221758A800A56833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF015F2221758A800A56833 /* Main.storyboard */; };
 		4EF39FF121FC885B00D0C920 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF39FEE21FC885A00D0C920 /* Country.swift */; };
 		4EF39FF221FC885B00D0C920 /* CountryPickerVisualConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF39FEF21FC885B00D0C920 /* CountryPickerVisualConfig.swift */; };
 		4EF39FF321FC885B00D0C920 /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF39FF021FC885B00D0C920 /* CountryManager.swift */; };
@@ -51,7 +51,7 @@
 		2F6F77DEC9D881E20C978E0DD3BBCF54 /* Pods-ALCountryPicker_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ALCountryPicker_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		314A5E16926F09DBFDD394612993D0D3 /* ALCountryPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALCountryPicker-prefix.pch"; sourceTree = "<group>"; };
 		32BC7F3B6625CDD678E5291F95968CE9 /* Pods-ALCountryPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ALCountryPicker_Example.modulemap"; sourceTree = "<group>"; };
-		4EF39FEC21FC873B00D0C920 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4EF015F2221758A800A56833 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4EF39FEE21FC885A00D0C920 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		4EF39FEF21FC885B00D0C920 /* CountryPickerVisualConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerVisualConfig.swift; sourceTree = "<group>"; };
 		4EF39FF021FC885B00D0C920 /* CountryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		4EF39FEA21FC869300D0C920 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4EF39FEC21FC873B00D0C920 /* Main.storyboard */,
+				4EF015F2221758A800A56833 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EF39FED21FC873B00D0C920 /* Main.storyboard in Resources */,
+				4EF015F3221758A800A56833 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
