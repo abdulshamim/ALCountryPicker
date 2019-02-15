@@ -16,7 +16,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 Minimum iOS version: 10.0
-Swift version > 4
+
+Swift version: 4, 4.1, 4.2
 
 ## Installation
 
@@ -25,6 +26,36 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'ALCountryPicker'
+```
+## Getting Started
+```ruby
+ import UIKit
+import ALCountryPicker
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var countryLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let currentCountry = Country.current {
+            self.countryLabel.text = currentCountry.flag + " " + currentCountry.countryName +  " (\(String(describing: currentCountry.dialingCode ?? "")))"
+        }
+        
+    }
+
+    @IBAction func openCountry(_ sender: UIButton) {
+        CountryPicker.present(on: self) { (country) in
+            DispatchQueue.main.async {
+                print(country.dialingCode ?? "")
+                print(country.flag, "",country.countryName, "", country.countryCode)
+                self.countryLabel.text = country.flag + " " + country.countryName +  " (\(String(describing: country.dialingCode ?? "")))"
+            }
+        }
+    }
+    
+}
 ```
 
 ## Author
