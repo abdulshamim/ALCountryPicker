@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/ALCountryPicker.svg?style=flat)](https://cocoapods.org/pods/ALCountryPicker)
 
 ## Country Picker
-List of all countries with flag and dialling code. You serach country by name, region code and dialling code. 
+List of all countries with flag and dialling code. You can serach country by name, region code and dialling code. 
  You can get you current country without opening country picker. For flag  [Emoji Unicode.Scalar](https://stackoverflow.com/questions/30402435/swift-turn-a-country-code-into-a-emoji-flag-via-unicode) is used.  
 
 
