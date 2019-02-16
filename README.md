@@ -59,8 +59,11 @@ class ViewController: UIViewController {
     
 }
 ```
+## Gif
+
+![countrypicker](https://user-images.githubusercontent.com/13666188/52890858-169cf880-31ad-11e9-9173-e9ac8bdc1552.gif)
+
 ## ScreenShots
-![countrypicker](https://user-images.githubusercontent.com/13666188/52890658-f15bba80-31ab-11e9-97f8-29b3d5e972c6.gif)
 
 ![img1](https://user-images.githubusercontent.com/13666188/52888485-d08e6780-31a1-11e9-8143-a6d6d9595259.png) ![img2](https://user-images.githubusercontent.com/13666188/52888492-dab06600-31a1-11e9-8edb-d2c7ac8ea631.png)
 
