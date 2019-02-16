@@ -47,20 +47,3 @@ func mapCountryName(_ countryCode: String) -> String {
     let localisedCountryName = locale.displayName(forKey: NSLocale.Key.countryCode, value: countryCode)!
     return localisedCountryName
 }
-
-
-//print("\n-------------------------- ****************************** ----------------------------\n\n")
-
-//let CP = String.emojiFlag(for: "CP")
-//let DG = String.emojiFlag(for: "DG")
-//let EA = String.emojiFlag(for: "EA")
-//let IC = String.emojiFlag(for: "IC")
-//let TA = String.emojiFlag(for: "TA")
-
-//print("CP flag: ", CP)
-//print("DG flag: ", DG)
-//print("EA flag: ", EA)
-//print("IC flag: ", IC)
-//print("TA flag: ", TA)
-//print("\n-------------------------- ****************************** ----------------------------\n\n")
-//

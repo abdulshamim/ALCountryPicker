@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ALCountryPicker'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'This is country picker framework.'
   s.description      = <<-DESC
                         List of all countries. You can search your country via name, country code and dialing code.

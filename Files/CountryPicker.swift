@@ -51,7 +51,6 @@ public class CountryPicker: UIViewController {
     private func setUpBackBarButton() {
         backBarButton.tintColor = .blue
         backBarButton.title = "← Back"
-        
     }
     
     private func setUpTableView() {
@@ -82,14 +81,12 @@ public class CountryPicker: UIViewController {
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CountryPicker") as? CountryPicker {
             vc.completion = completion
             let navVC = UINavigationController(rootViewController: vc)
-            //navVC.setNavigationBarHidden(false, animated: false)
             viewController.navigationController?.present(navVC, animated: true, completion: nil)
         }
         
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
-        print("Working")
         self.dismiss(animated: true, completion: nil)
     }
 }
